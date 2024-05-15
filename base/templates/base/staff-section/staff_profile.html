@@ -1,0 +1,64 @@
+{% include 'sections.html' %}
+
+{% block content %}
+
+{% load static %}
+{% load custom_filters %}
+
+<link rel="stylesheet"  href="{% static 'styles/patient/patient_profile_.css' %}">
+
+<body>
+    <div class="profile-page">
+        <div class="content">
+            <div class="content__cover">
+                <div class="content__avatar"></div>
+                <div class="content__bull"></div>
+            </div>
+    
+            <a href="{% url 'staff_profile' %}" class="edit-profile" target="_blank">
+                <i class="fa-solid fa-check"></i>
+                <span>Staff</span>
+            </a>
+            
+        <div class="content__title">
+            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+        </div>
+        
+
+        <div class="profile-info">
+
+            <div class="personal-info">
+                <h2>Personal Information</h2>
+
+                <div class="info-item">
+                    <label>Username:</label>
+                    <span id="username">{{ user.username }}</span>
+                </div>
+
+                <div class="info-item">
+                    <label>Birth Date:</label>
+                    <span id="birth-date">{{ user.birth_date }}</span>
+                </div>
+
+
+                    <div class="info-item">
+                        <label>Email Address:</label>
+                        <span id="address">{{ user.email_address }}</span>
+                    </div>
+
+                    <div class="info-item">
+                        <label>Phone Number:</label>
+                        <span id="age">{{ user.phone_number }}</span>
+                    </div>
+
+                    <div class="info-item">
+                        <label>Position:</label>
+                        <span id="sex">{{ user.position }}</span>
+                    </div>
+            </div>
+            
+        </div>
+    </div>        
+</body>
+
+{% endblock %}

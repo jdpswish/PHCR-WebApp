@@ -10,6 +10,10 @@ class User(AbstractUser):
     middle_name = models.CharField(max_length=255, blank=True, default='')
     last_name = models.CharField(max_length=255, default='')
     birth_date = models.DateField()
+    email_address = models.EmailField(max_length=254, blank=True)
+    phone_number = models.CharField(max_length=15, blank=True)
+    position = models.CharField(max_length=50, blank=True)
+
 
     REQUIRED_FIELDS = []
 

@@ -16,6 +16,7 @@ def staff_login_required(view_func):
             return view_func(request, *args, **kwargs)
     return wrapper
 
+
 def calculate_statistics():
     total_users = User.objects.count()
     total_patients = User.objects.filter(is_staff=False).count()
@@ -64,6 +65,17 @@ def calculate_statistics():
         'medical_conditions': medical_conditions,
         'social_habits': social_habits,
     }
+
+
+@staff_login_required
+def staff_profile(request):
+    user = request.user
+    context = {
+        'user': user,
+    }
+
+    return render(request, 'base/staff-section/staff_profile.html', context)
+
 
 @staff_login_required
 def staff_dashboard(request):
